@@ -9,23 +9,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Playfair+Display:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* BODY & CENTERING */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
       background: linear-gradient(to bottom right, #fff0f5, #ffe6e6);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      justify-content: center;   /* horizontal center */
+      align-items: center;       /* vertical center */
+      min-height: 100vh;         /* fill viewport */
     }
 
     .card-container {
       perspective: 1200px;
       width: 90%;
       max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
+    /* CARD FLIP */
     .card {
       width: 100%;
       transform-style: preserve-3d;
@@ -45,16 +50,17 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
       position: absolute;
       width: 100%;
+      max-width: 500px;
       min-height: 500px;
       backface-visibility: hidden;
       text-align: center;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: center; /* vertical center inside card */
     }
 
-    /* Front Side */
+    /* FRONT SIDE */
     .front h2 {
       font-family: 'Great Vibes', cursive;
       font-size: 2.8rem;
@@ -68,7 +74,7 @@
       color: #ff3366;
     }
 
-    /* Back Side */
+    /* BACK SIDE */
     .back {
       transform: rotateY(180deg);
     }
@@ -142,7 +148,7 @@
       font-size: 1.3rem;
     }
 
-    /* Floating hearts */
+    /* FLOATING HEARTS */
     .heart {
       position: absolute;
       width: 30px;
@@ -173,30 +179,30 @@
       100% { transform: translateX(15px) translateY(-50px) rotate(-45deg); opacity: 0; }
     }
 
+    /* MOBILE STYLING */
     @media (max-width: 500px) {
+      .card-face { min-height: 450px; padding: 2rem; }
       h2 { font-size: 2.2rem; }
       .card-icon { font-size: 5rem; }
       h1 { font-size: 2.2rem; }
       .names { font-size: 2.2rem; }
       .invitation-text { font-size: 1.05rem; padding: 0.8rem 1rem; }
       .footer { font-size: 1.1rem; }
-      .card-face { min-height: 450px; padding: 2.5rem; }
       .details p { font-size: 1rem; }
     }
-
   </style>
 </head>
 <body>
 
   <div class="card-container">
     <div class="card" id="weddingCard">
-      <!-- Front Side -->
+      <!-- FRONT -->
       <div class="card-face front">
         <div class="card-icon">💌</div>
         <h2>Click to Open</h2>
       </div>
 
-      <!-- Back Side -->
+      <!-- BACK -->
       <div class="card-face back">
         <div class="heart"></div>
         <div class="heart" style="left:20%; animation-delay: 1s;"></div>
@@ -216,7 +222,7 @@
         </p>
 
         <div class="details">
-          <p><strong>Date and Time:</strong><br>Monday: February 09, 2025 at 7:00 PM</p>
+          <p><strong>Date and Time:</strong><br>Monday: February 17, 2025 at 7:00 PM</p>
           <p><strong>Venue:</strong><br>Dhakeshwari Chainese, B8, Kalyani, West Bengal</p>
           <p class="footer">We can't wait to celebrate with you!</p>
         </div>
@@ -228,7 +234,7 @@
     const card = document.getElementById('weddingCard');
     const greeting = document.getElementById('personalGreeting');
 
-    // Click to flip card
+    // Flip card on click
     card.addEventListener('click', () => {
       card.classList.toggle('open');
     });
