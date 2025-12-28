@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rimi & Bibhash Wedding</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Playfair+Display:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6e6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card-container {
+      perspective: 1200px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .card {
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card.open {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 3rem;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      position: absolute;
+      width: 100%;
+      min-height: 500px;
+      backface-visibility: hidden;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Front Side */
+    .front h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #d6336c;
+      margin: 1rem 0 0 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 6rem;
+      color: #ff3366;
+    }
+
+    /* Back Side */
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #d6336c;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+      margin-bottom: 0.5rem;
+    }
+
+    .names {
+      font-family: 'Alex Brush', cursive;
+      font-size: 2.8rem;
+      color: #ff3366;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.15);
+    }
+
+    #personalGreeting {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #b30059;
+      font-size: 1.3rem;
+      font-style: italic;
+      background: linear-gradient(to right, #ffd6e8, #ffebf5);
+      border-radius: 8px;
+      padding: 0.4rem 0.8rem;
+      display: inline-block;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 0.5rem 0;
+    }
+
+    .invitation-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #5a3d5c;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      padding: 1rem 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 1rem 0;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .details {
+      margin-top: 1.5rem;
+      border-top: 1px dashed #d6336c;
+      padding-top: 1rem;
+    }
+
+    .details p {
+      font-family: 'Playfair Display', serif;
+      margin: 0.6rem 0;
+      background: #fff0f5;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      font-family: 'Alex Brush', cursive;
+      margin-top: 1.2rem;
+      font-weight: bold;
+      color: #d6336c;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff4d94;
+      transform: rotate(-45deg);
+      top: -10px;
+      left: 50%;
+      animation: float 4s infinite;
+      border-radius: 50% 50% 0 0;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff4d94;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -15px; left: 0; }
+    .heart::after { left: 15px; top: 0; }
+
+    @keyframes float {
+      0% { transform: translateX(0) rotate(-45deg); opacity: 0; }
+      50% { transform: translateX(-15px) translateY(-25px) rotate(-45deg); opacity: 1; }
+      100% { transform: translateX(15px) translateY(-50px) rotate(-45deg); opacity: 0; }
+    }
+
+    @media (max-width: 500px) {
+      h2 { font-size: 2.2rem; }
+      .card-icon { font-size: 5rem; }
+      h1 { font-size: 2.2rem; }
+      .names { font-size: 2.2rem; }
+      .invitation-text { font-size: 1.05rem; padding: 0.8rem 1rem; }
+      .footer { font-size: 1.1rem; }
+      .card-face { min-height: 450px; padding: 2.5rem; }
+      .details p { font-size: 1rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="card" id="weddingCard">
+      <!-- Front Side -->
+      <div class="card-face front">
+        <div class="card-icon">💌</div>
+        <h2>Click to Open</h2>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-face back">
+        <div class="heart"></div>
+        <div class="heart" style="left:20%; animation-delay: 1s;"></div>
+        <div class="heart" style="left:70%; animation-delay: 2s;"></div>
+
+        <h1>Wedding Celebration</h1>
+        <p class="names">Rimi & Bibhash</p>
+        <p id="personalGreeting"></p>
+
+        <p class="invitation-text">
+          We joyfully invite you to celebrate our wedding reception as we begin our journey together. 
+          Your presence would make our special day even more memorable.
+        </p>
+
+        <p class="invitation-text">
+          Please join us for an evening of love, laughter, and celebration!
+        </p>
+
+        <div class="details">
+          <p><strong>Date and Time:</strong><br>Monday: February 09, 2025 at 7:00 PM</p>
+          <p><strong>Venue:</strong><br>Dhakeshwari Chainese, B8, Kalyani, West Bengal</p>
+          <p class="footer">We can't wait to celebrate with you!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('weddingCard');
+    const greeting = document.getElementById('personalGreeting');
+
+    // Click to flip card
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+
+    // Personalized greeting
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('invitation');
+    if(name) {
+      greeting.textContent = `Dear ${name},`;
+    }
+  </script>
+
+</body>
+</html>
