@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rimi & Bibhash Wedding</title>
 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Playfair+Display:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ===== RESET ===== */
 * {
   box-sizing: border-box;
 }
@@ -16,14 +16,13 @@
 /* ===== BODY ===== */
 body {
   margin: 0;
-  padding: 0;
   height: 100svh;
   background: linear-gradient(135deg, #fff0f5, #ffe6ee);
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
 
-/* ===== ABSOLUTE CENTER FIX (🔥 KEY) ===== */
+/* ===== ABSOLUTE CENTER (BULLETPROOF) ===== */
 .card-container {
   position: fixed;
   top: 50%;
@@ -36,7 +35,7 @@ body {
 .card {
   width: 90vw;
   max-width: 480px;
-  height: 600px;                 /* fixed = no shift */
+  height: 600px;               /* fixed height */
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
@@ -77,8 +76,22 @@ body {
 /* ===== BACK ===== */
 .back {
   transform: rotateY(180deg);
+  padding: 1.8rem;
 }
 
+/* ===== SCROLLABLE CONTENT ===== */
+.back-content {
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.back-content::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ===== TEXT STYLES ===== */
 h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 2.6rem;
@@ -132,13 +145,13 @@ h1 {
   font-family: 'Alex Brush', cursive;
   font-size: 1.4rem;
   color: #d6336c;
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
 }
 
 /* ===== MOBILE TUNE ===== */
 @media (max-width: 420px) {
   .card {
-    height: 620px;
+    height: 640px;
   }
   h1 { font-size: 2.3rem; }
   .names { font-size: 2.4rem; }
@@ -159,23 +172,35 @@ h1 {
 
     <!-- BACK -->
     <div class="card-face back">
-      <h1>Wedding Celebration</h1>
-      <div class="names">Rimi & Bibhash</div>
-      <div id="personalGreeting"></div>
+      <div class="back-content">
 
-      <div class="invitation-text">
-        We joyfully invite you to celebrate our wedding reception as we begin our journey together.
-        Your presence would make our special day even more memorable.
-      </div>
+        <h1>Wedding Celebration</h1>
+        <div class="names">Rimi & Bibhash</div>
+        <div id="personalGreeting"></div>
 
-      <div class="invitation-text">
-        Please join us for an evening of love, laughter, and celebration!
-      </div>
+        <div class="invitation-text">
+          We joyfully invite you to celebrate our wedding reception as we begin our journey together.
+          Your presence would make our special day even more memorable.
+        </div>
 
-      <div class="details">
-        <p><strong>Date & Time</strong><br>Monday, February 09, 2025 · 7:00 PM</p>
-        <p><strong>Venue</strong><br>Dhakeshwari Chainese, B8, Kalyani, West Bengal</p>
-        <div class="footer">We can’t wait to celebrate with you!</div>
+        <div class="invitation-text">
+          Please join us for an evening of love, laughter, and celebration!
+        </div>
+
+        <div class="details">
+          <p><strong>Date & Time</strong><br>
+            Monday, February 17, 2025 · 7:00 PM
+          </p>
+
+          <p><strong>Venue</strong><br>
+            Dhakeshwari Chainese, B8, Kalyani, West Bengal
+          </p>
+
+          <div class="footer">
+            We can’t wait to celebrate with you!
+          </div>
+        </div>
+
       </div>
     </div>
 
