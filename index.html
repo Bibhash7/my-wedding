@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rimi & Bibhash Wedding</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Playfair+Display:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ================= GLOBAL CENTER FIX ================= */
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
 body {
   margin: 0;
   padding: 0;
-  min-height: 100svh;               /* mobile-safe viewport */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100svh;
   background: linear-gradient(135deg, #fff0f5, #ffe6ee);
-  overflow: hidden;                 /* prevent side shift */
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
+/* ===== ABSOLUTE CENTER FIX (🔥 KEY) ===== */
 .card-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   perspective: 1500px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* ================= CARD ================= */
+/* ===== CARD ===== */
 .card {
-  width: 90%;
+  width: 90vw;
   max-width: 480px;
-  height: 560px;                    /* 🔥 fixed height */
+  height: 600px;                 /* fixed = no shift */
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
@@ -45,41 +47,41 @@ body {
   transform: rotateY(180deg);
 }
 
-/* ================= CARD FACES ================= */
+/* ===== CARD FACES ===== */
 .card-face {
   position: absolute;
-  inset: 0;                         /* 🔥 perfect overlap */
+  inset: 0;
   backface-visibility: hidden;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.96);
   border-radius: 26px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-  padding: 2.5rem;
+  padding: 2.4rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
-/* ================= FRONT ================= */
+/* ===== FRONT ===== */
 .front .icon {
   font-size: 6rem;
 }
 
 .front h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: #d6336c;
   margin-top: 1rem;
 }
 
-/* ================= BACK ================= */
+/* ===== BACK ===== */
 .back {
   transform: rotateY(180deg);
 }
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.7rem;
+  font-size: 2.6rem;
   color: #d6336c;
 }
 
@@ -93,7 +95,7 @@ h1 {
 #personalGreeting {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: #a3004f;
   margin-bottom: 1rem;
 }
@@ -101,7 +103,7 @@ h1 {
 .invitation-text {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   line-height: 1.7;
   color: #5b3a4e;
   background: linear-gradient(135deg, #ffe3f0, #fff5fa);
@@ -133,41 +135,13 @@ h1 {
   margin-top: 0.6rem;
 }
 
-/* ================= HEARTS ================= */
-.heart {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  background: #ff4d94;
-  transform: rotate(-45deg);
-  animation: float 4s infinite;
-}
-
-.heart::before,
-.heart::after {
-  content: '';
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  background: #ff4d94;
-  border-radius: 50%;
-}
-
-.heart::before { top: -14px; left: 0; }
-.heart::after { left: 14px; top: 0; }
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(-45deg); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-60px) rotate(-45deg); opacity: 0; }
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 480px) {
-  .card { height: 600px; }
-  h1 { font-size: 2.4rem; }
+/* ===== MOBILE TUNE ===== */
+@media (max-width: 420px) {
+  .card {
+    height: 620px;
+  }
+  h1 { font-size: 2.3rem; }
   .names { font-size: 2.4rem; }
-  .front h2 { font-size: 2.4rem; }
 }
 </style>
 </head>
@@ -176,7 +150,7 @@ h1 {
 
 <div class="card-container">
   <div class="card" id="card">
-    
+
     <!-- FRONT -->
     <div class="card-face front">
       <div class="icon">💌</div>
@@ -185,9 +159,6 @@ h1 {
 
     <!-- BACK -->
     <div class="card-face back">
-      <div class="heart" style="left:20%; top:20px;"></div>
-      <div class="heart" style="left:70%; top:30px; animation-delay:1s;"></div>
-
       <h1>Wedding Celebration</h1>
       <div class="names">Rimi & Bibhash</div>
       <div id="personalGreeting"></div>
@@ -202,7 +173,7 @@ h1 {
       </div>
 
       <div class="details">
-        <p><strong>Date & Time</strong><br>Monday, February 17, 2025 · 7:00 PM</p>
+        <p><strong>Date & Time</strong><br>Monday, February 09, 2025 · 7:00 PM</p>
         <p><strong>Venue</strong><br>Dhakeshwari Chainese, B8, Kalyani, West Bengal</p>
         <div class="footer">We can’t wait to celebrate with you!</div>
       </div>
